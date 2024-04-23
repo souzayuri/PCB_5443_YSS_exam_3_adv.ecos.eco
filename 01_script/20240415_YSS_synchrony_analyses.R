@@ -97,8 +97,8 @@ closed.wide <- reshape(data=closed, idvar=c("Latitude", "Longitude"), timevar=c(
 closed.wide
 
 # Generate variograms
-v.closed <- vario(n.bins=10, data=closed.wide, type="pearson", extent=1, nrands=500, size.bins=NULL)
-v.closed
+v.closed <- vario(n.bins=10, data=closed.wide, type="pearson", extent=1, nrands=500, size.bins=NULL) 
+
 
 ## Fit variograms
 v.lin.closed <- vario.fit(v.closed$vario, v.closed$mean.bin.dist, type="linear")
@@ -110,11 +110,9 @@ par(mar=c(5,5,3,3))
 par(mfrow=c(1,2))
 plot(v.open,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Open", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
-#lines(v.open$mean.bin.dist, v.car.lin.open$fit, col="red")
 plot(v.closed,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Closed", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
 mtext("Abundance", side = 3, cex.main=1.2, cex=1.2, line = - 2, outer = TRUE)
-
 
 
 par(mar=c(5,5,3,3))
@@ -205,11 +203,11 @@ par(mar=c(5,5,3,3))
 par(mfrow=c(1,2))
 plot(v.open.cbo,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Open", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
-#lines(v.open$mean.bin.dist, v.cbo.lin.open$fit, col="red")
+lines(v.open.cbo$mean.bin.dist, v.cbo.lin.open.cbo$fit, col="red")
 plot(v.closed.cbo,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Closed", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
 mtext("CBO - Abundance", side = 3, cex.main=1.5, cex=1.5, line = - 2, outer = TRUE)
-
+lines(v.closed.cbo$mean.bin.dist, v.cbo.lin.closed.cbo$fit, col="red")
 
 
 par(mar=c(5,5,3,3))
@@ -600,7 +598,7 @@ plot(v.open.div,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)"
 #lines(v.open$mean.bin.dist, v.car.lin.open$fit, col="red")
 plot(v.closed.div,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Closed", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
-mtext("Simpson Diversity - Species", side = 3, cex.main=1.2, cex=1.2, line = - 2, outer = TRUE)
+mtext("Inverse Simpson Diversity - Species", side = 3, cex.main=1.0, cex=1.0, line = - 2, outer = TRUE)
 
 
 
@@ -706,7 +704,7 @@ plot(v.open.div.lf,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (k
 #lines(v.open$mean.bin.dist, v.car.lin.open$fit, col="red")
 plot(v.closed.div.lf,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Closed", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
-mtext("Simpson Diversity - Life-forms", side = 3, cex.main=1.2, cex=1.2, line = - 2, outer = TRUE)
+mtext("Inverse Simpson Diversity - Growth-Forms", side = 3, cex.main=1.0, cex=1.0, line = - 2, outer = TRUE)
 
 
 par(mar=c(5,5,3,3))
