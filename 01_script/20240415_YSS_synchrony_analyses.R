@@ -595,12 +595,12 @@ par(mar=c(5,5,3,3))
 par(mfrow=c(1,2))
 plot(v.open.div,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Open", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
-#lines(v.open$mean.bin.dist, v.car.lin.open$fit, col="red")
+lines(v.open$mean.bin.dist, v.lin.open.div$fit, col="red")
 plot(v.closed.div,  bg.sig="grey40", col.nonsig="grey20", xlab="Lag distance (km)",
      main="Closed", rug=TRUE, ylim=c(-1, 1), cex.main=1, cex=1, cex.axis=1, cex.lab=1, ci = TRUE)
 mtext("Inverse Simpson Diversity - Species", side = 3, cex.main=1.0, cex=1.0, line = - 2, outer = TRUE)
 
-
+v.open$mean.bin.dist
 
 par(mar=c(5,5,3,3))
 par(mfrow=c(1,2))
